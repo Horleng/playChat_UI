@@ -4,7 +4,7 @@
 @tailwind utilities;
 @layer components{
   *{
-    @apply font-noto lg:text-base text-sm text-gray-500 dark:text-gray-300 m-0 p-0 box-border
+    @apply font-noto lg:text-base text-sm text-gray-500 dark:text-gray-400 m-0 p-0 box-border
   }
   body{
     @apply overflow-hidden bg-gray-300 dark:bg-gray-600
@@ -30,8 +30,11 @@
   border-top: 3px solid green;
   border-right: 3px solid green;
   animation: loading 0.5s infinite linear;
-  animation: loading 1s linear infinite;
   margin: 0 auto;
+}
+.img-loading{
+  transition: all 0.2s else-in-out;
+  animation: imgLoading 1.5s linear forwards;
 }
 @keyframes loading{
   from{
@@ -39,5 +42,13 @@
   }
   to{
     transform: rotate(360deg);
+  }
+}
+@keyframes imgLoading{
+  from{
+    background-color: #E0E0E0;
+  }
+  to{
+    background-color: #C1C9CC;
   }
 }

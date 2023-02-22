@@ -14,20 +14,21 @@ const Profile = () => {
     const [information,setInformation] =useState(false);
     const [security,setSecurity] =useState(false);
     const [logout,setLogout] = useState(false);
+    const [changeImgLoading,setChangeImgLoading] = useState(false);
     const {User,setUser} = useContext(Context);
     const navigation = useNavigate();
     useEffect(()=>{
         if(!User) navigation("/");
     },[User,navigation])
     const changeImg = async(img)=>{
-        await axios.post(`${url}/auth/changePhoto?id=${User._id}`,{img},{headers:{
-            'Content-Type':'multipart/form-data'
-        }})
+        await axios.post(`${url}/auth/changePhoto?id=${User._id}`,{img})
         .then(res=>{
             localStorage.setItem("token",res.data.token);
             setUser(res.data.data);
+            setChangeImgLoading(false);
             alert(res.data.message);
         }).catch(err=>{
+            setChangeImgLoading(false);
             if(err.response) alert(err.response.data.message);
         })
     }
@@ -38,6 +39,17 @@ const Profile = () => {
             navigation("/auth/login");
         }
         else setLogout(false);
+    }
+    const setFileToBase = (file)=>{
+        setChangeImgLoading(true);
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = ()=>{
+            changeImg(reader.result);
+        };
+    }
+    const setNewImage = (e)=>{
+        setFileToBase(e.target.files[0]);
     }
     return (
         <>
@@ -57,8 +69,8 @@ const Profile = () => {
                         logout?
                         <div className='absolute right-10 top-12 py-4 w-[10rem]'>
                             <ul>
-                                <li onClick={clear} className='flex justify-center items-center gap-2 px-2 
-                                bg-gray-400 dark:bg-gray-400 hover:bg-gray-300 dark:hover:bg-gray-500 py-2 w-full rounded-lg'>
+                                <li onClick={clear} className='flex justify-center items-center gap-2 px-1 
+                                bg-gray-400 dark:bg-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500 py-2 w-full rounded-lg'>
                                     <AiOutlineLogout size="25px"/>Logout</li>
                             </ul>
                         </div>:""
@@ -67,10 +79,15 @@ const Profile = () => {
                     <hr className='border-[1.2px] border-gray-500'/>
                     <div className='flex justify-center transition-all bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-900 hover:bg-gray-400 w-[90%] mx-auto py-4 rounded-lg mt-4'>
                         <label htmlFor="img" className='relative'>
-                            <img src={User.img} alt="" 
-                            className='w-[120px] h-[120px] rounded-full transition-all hover:scale-[1.05]'/>
+                            {
+                                User?
+                                changeImgLoading?<div className='w-[120px] h-[120px] rounded-full img-loading'/>:
+                                <img src={User.img} alt="" 
+                                className='w-[120px] h-[120px] rounded-full transition-all hover:scale-[1.05]'/>
+                                :<div className='w-[120px] h-[120px] rounded-full img-loading'/>
+                            }
                             <AiFillCamera size="40px" fill='' className='absolute top-16 right-10 shadow-xl'/>
-                            <input type="file"id='img' onChange={e=>changeImg(e.target.files[0])} hidden/>
+                            <input type="file"id='img' onChange={setNewImage} hidden/>
                         </label>
                     </div>
                     <div className='flex justify-between items-center mt-10'>

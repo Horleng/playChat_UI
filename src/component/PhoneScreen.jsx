@@ -25,6 +25,9 @@ const PhoneScreen = ({socket}) => {
         }
         if(User) GetFriends();
     },[refresh,User]);
+    useEffect(()=>{
+        setMs(false);
+    },[setMs]);
     return (
         <>
             {

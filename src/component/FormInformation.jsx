@@ -14,7 +14,7 @@ const FormInformation = () => {
     const navigate = useNavigate();
     const saveInformation = async()=>{
         setLoading(true);
-        await axios.post(`${url}/auth/userInformation?id=${id}`,{firstName,lastName,birth,sex,purpos,img},{headers:{"content-type":"multipart/form-data"}})
+        await axios.post(`${url}/auth/userInformation?id=${id}`,{firstName,lastName,birth,sex,purpos,img})
         .then((res)=>{
             setLoading(false);
             alert(res.data.message);
@@ -29,6 +29,13 @@ const FormInformation = () => {
     },[id,navigate])
     const callSaveInformation = (e)=>{
         if(e.key==="Enter") saveInformation();
+    }
+    const setImgToBase = (file)=>{
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = ()=>{
+            setImg(reader.result);
+        }
     }
     const Next = ()=>{
         navigate('/auth/login');
@@ -84,7 +91,7 @@ const FormInformation = () => {
                                 <label htmlFor="img">Photo</label>
                                 <label htmlFor="img" className='border py-2 px-5 rounded-lg  border-orange-600 outline-green-500'
                                     >Choose your image
-                                    <input type="file" id='img' hidden onChange={(e)=>setImg(e.target.files[0])}/>
+                                    <input type="file" id='img' hidden onChange={(e)=>setImgToBase(e.target.files[0])}/>
                                 </label>
                             </span>
                         </span>

@@ -3,6 +3,7 @@ import {AiOutlineArrowRight} from "react-icons/ai"
 import {FiSend} from "react-icons/fi"
 import { Context } from "../Context/Context";
 import axios from "axios";
+import moment from "moment";
 import { url } from "../base_url";
 const Message = (props) => {
   const {setMs,User} = useContext(Context);
@@ -109,7 +110,7 @@ useEffect(()=>{
                         <div  className={" text-gray-200 dark:text-gray-300 py-1 px-4 rounded-lg break-words "+(msg.sender===User._id?" bg-gray-400 dark:bg-gray-500":"bg-violet-400")}>
                             {msg.text}
                         </div>
-                        <span className={"text-[10px] mt-1"}>{msg.createdAt}</span>
+                        <span className={"text-[10px] mt-1"}>{moment(msg.createdAt).fromNow()}</span>
                       </span>
                     </div>
                   )

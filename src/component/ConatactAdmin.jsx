@@ -5,6 +5,7 @@ import { Context } from '../Context/Context';
 import axios from 'axios';
 import {BsFacebook,BsTelegram} from "react-icons/bs";
 import { url } from '../base_url';
+import moment from 'moment';
 const ConatactAdmin = ({conversationId,members,isAdmin}) => {
     const [loading,setLoading] = useState(false);
     const [loading2,setLoading2] = useState(false);
@@ -114,7 +115,7 @@ const ConatactAdmin = ({conversationId,members,isAdmin}) => {
                                                 <span className={(ms.sender===User._id?"bg-gray-400 dark:bg-gray-600":"bg-[#4FA4F4] text-white")+' py-1 break-all text-base px-4 rounded-lg text-gray-700 dark:text-gray-300'}>
                                                     {ms.text}
                                                 </span>
-                                                <span className='text-xs'>{ms.createdAt}</span>
+                                                <span className='text-xs'>{moment(ms.createdAt).fromNow()}</span>
                                             </div>
                                         </div>
                                     )

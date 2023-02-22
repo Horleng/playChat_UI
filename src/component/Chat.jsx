@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import {FiSend} from 'react-icons/fi'
 import axios from 'axios';
 import { Context } from '../Context/Context';
+import moment from 'moment';
 import { url } from '../base_url';
 const Chat = (props) => {
     const {User} = useContext(Context);
@@ -97,7 +98,7 @@ const Chat = (props) => {
                                         <div className={"break-all text-gray-300 py-1 px-4 rounded-lg "+(message.sender===User._id?"bg-gray-600 dark:bg-gray-500 ":"bg-violet-500")}>
                                             {message.text}     
                                         </div>
-                                        <span className="text-[10px] p-0 m-0">{message.createdAt}</span>
+                                        <span className="text-[10px] p-0 m-0">{moment(message.createdAt).fromNow()}</span>
                                     </div>
                                     </div>
                                 )
