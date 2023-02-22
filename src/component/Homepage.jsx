@@ -38,6 +38,14 @@ const Homepage = () => {
             }
         }
         if(!User) checkAuth();
+        else {
+            socket.current?.on("connect",()=>{
+                console.log("connected");
+                socket.current?.emit("joinChat",{authId:User?._id});
+                    setLoading(false);
+                    setSocket(socket?.current);
+            });
+        }
     },[User,navigate,setLoading,setSocket,setUser,]);
     useEffect(() => {
         socket.current = io(url);
