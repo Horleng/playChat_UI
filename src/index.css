@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components{
+  *{
+    @apply font-noto lg:text-base text-sm text-gray-500 dark:text-gray-300 m-0 p-0 box-border
+  }
+  body{
+    @apply overflow-hidden bg-gray-300 dark:bg-gray-600
+  }
+  button{
+    @apply py-2 px-4 rounded-lg border-none outline-none  transition-all text-white text-sm
+  }
+  input{
+    @apply py-2 px-5 rounded-lg bg-inherit  placeholder:text-sm
+  }
+  ul li{
+    @apply cursor-pointer font-bold
+  }
+}
+.active li{
+  color: red;
+}
+.loading{
+  height: 22px;
+  width: 22px;
+  border-radius: 100px;
+  border: 3px solid transparent;
+  border-top: 3px solid green;
+  border-right: 3px solid green;
+  animation: loading 0.5s infinite linear;
+  animation: loading 1s linear infinite;
+  margin: 0 auto;
+}
+@keyframes loading{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
