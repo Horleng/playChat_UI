@@ -4,7 +4,7 @@
 @tailwind utilities;
 @layer components{
   *{
-    @apply font-roboto text-base m-0 p-0 box-border
+    @apply font-roboto text-base m-0 p-0 box-border dark:text-gray-200
   }
   body{
     @apply overflow-hidden bg-gray-300 dark:bg-gray-600

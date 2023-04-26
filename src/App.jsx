@@ -25,7 +25,7 @@ const App = ()=>{
       <Context.Provider value={{openAdminChat,setOpentAdminChat,socket,setSocket,add,setAdd,ms,setMs,User,setUser,loading,setLoading,setOpentChatContact,openChatContact}}>
         {
           User?<Header/>:
-          <div className="py-4 bg-gray-200 dark:bg-gray-900 px-4">
+          <div className="py-4 bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.2)] dark:bg-gray-900 px-4">
             <h1 className="text-xl font-bold  bg-gradient-to-r from-[#49C5F6] to-[#FF2AEf] bg-clip-text text-transparent">Chat app</h1>
           </div>
         }

@@ -79,7 +79,7 @@ const Register = () => {
     })
     return (
         <>
-            <div className='animate-formAnimation bg-white dark:bg-slate-700 md:mt-[5vh] lg:w-[50%] md:w-[70%] sm:w-[80%] w-[98%] py-10 rounded-lg mx-auto shadow-[0px_0px_10px_rgba(0,0,0,0.2)]'>
+            <div className='animate-formAnimation bg-white dark:bg-slate-700 md:mt-[5vh] lg:w-[50%] md:w-[70%] sm:w-[80%] w-[98%] py-10 md:rounded-lg mx-auto md:shadow-[0px_0px_10px_rgba(0,0,0,0.2)]'>
                 <h1 className='flex justify-center text-2xl font-extrabold'>Sign Up</h1>
                 {
                     !create?

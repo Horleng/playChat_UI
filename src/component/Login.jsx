@@ -38,11 +38,11 @@ const Login = () => {
     },[showPassword]);
     return (
         <>
-            <div className='animate-formAnimation bg-white dark:bg-slate-700 md:mt-[5vh] rounded-lg lg:w-[50%] md:w-[60%] sm:w-[80%] w-[96%] mx-auto p-10 shadow-[0px_0px_10px_rgba(0,0,0,0.2)] transition-all duration-200'>
+            <div className='animate-formAnimation bg-white dark:bg-slate-700 md:mt-[5vh] md:rounded-lg lg:w-[50%] md:w-[60%] sm:w-[80%] w-[96%] mx-auto p-10 md:shadow-[0px_0px_10px_rgba(0,0,0,0.2)] transition-all duration-200'>
                 <h1 className='text-[30px] font-bold flex justify-center'>
                     Login
                 </h1>
-                <div className='mt-10 lg:w-[60%] w-[90%] mx-auto'>
+                <div className='mt-10 lg:w-[60%] w-full mx-auto'>
                         <div className='flex flex-col gap-2'>
                             <label htmlFor="email">Email</label>
                             <input type="email" id='email'  onKeyPress={handlePressKey}
@@ -72,11 +72,11 @@ const Login = () => {
                                 <span>
                                     <input type="checkbox" id='check' defaultChecked  onChange={(e)=>setCheckbox(e.target.checked)}/>
                                 </span>
-                                <label htmlFor="check">Remember me</label>
+                                <label htmlFor="check" className='text-sm'>Remember me</label>
                             </div>
                             <span>
                                 <Link to="/auth/recover">
-                                    <p className='text-blue-700 underline text-base cursor-pointer'>forgot password?</p>
+                                    <p className='text-blue-700 underline text-sm cursor-pointer'>forgot password?</p>
                                 </Link>
                             </span>
                         </div>
