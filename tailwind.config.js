@@ -27,9 +27,14 @@ module.exports = {
         'bottom-animate':{
           '0%':{transform:'translateY(100%)'},
           '100%':{transform:'translateY(0)'}
-        }
+        },
+        'spinner':{
+          '0%':{transform:'rotate(0deg)'},
+          '100%':{transform:'rotate(360deg)'}
+        },
       },
       animation:{
+        'loading':'spinner 1.5s linear infinite',
         'formAnimation':'bottom-animate 0.3s ease-out forwards'
       }
     },

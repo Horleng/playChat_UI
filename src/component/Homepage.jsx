@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {io} from "socket.io-client";
 import { url } from '../base_url';
+import Loading from './Loading';
 const Homepage = () => {
     const socket = useRef();
     const {User,setUser,loading,setLoading} = useContext(Context);
@@ -45,7 +46,7 @@ const Homepage = () => {
     return (
         <>
             {
-            loading?<span className='absolute text-xl text-gray-400'>Loading...</span>:
+            loading?<Loading />:
                 <div>
                     <div className='md:hidden block'>
                         <PhoneScreen socket={socket.current}/>

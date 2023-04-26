@@ -38,7 +38,7 @@ const Login = () => {
     },[showPassword]);
     return (
         <>
-            <div className='animate-formAnimation bg-white dark:bg-slate-700 mt-[5vh] rounded-lg lg:w-[50%] md:w-[60%] sm:w-[80%] w-[96%] mx-auto p-10 shadow-[0px_0px_10px_rgba(0,0,0,0.2)] transition-all duration-200'>
+            <div className='animate-formAnimation bg-white dark:bg-slate-700 md:mt-[5vh] rounded-lg lg:w-[50%] md:w-[60%] sm:w-[80%] w-[96%] mx-auto p-10 shadow-[0px_0px_10px_rgba(0,0,0,0.2)] transition-all duration-200'>
                 <h1 className='text-[30px] font-bold flex justify-center'>
                     Login
                 </h1>
