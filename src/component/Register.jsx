@@ -79,24 +79,24 @@ const Register = () => {
     })
     return (
         <>
-            <div className='bg-gray-300 dark:bg-slate-700 h-screen md:pt-16 pt-10 container mx-auto'>
+            <div className='animate-formAnimation bg-white dark:bg-slate-700 mt-[5vh] lg:w-[50%] md:w-[70%] sm:w-[80%] w-[98%] py-10 rounded-lg mx-auto shadow-[0px_0px_10px_rgba(0,0,0,0.2)]'>
                 <h1 className='flex justify-center text-2xl font-extrabold'>Sign Up</h1>
                 {
                     !create?
-                    <div className='mx-auto md:mt-8 mt-5 lg:w-[50%] md:w-[70%] w-[90%] flex justify-center'>
-                        <div className=' lg:w-[50%] md:w-[70%] w-[100%]  flex flex-col gap-5' >
-                            <span className='flex flex-col'>
+                    <div className='mx-auto md:mt-8 mt-5 w-[90%] flex justify-center'>
+                        <div className='lg:w-[50%] md:w-[70%] w-[100%] flex flex-col gap-5' >
+                            <span className='flex flex-col gap-3'>
                                 <label htmlFor="email">Email</label>
                                 <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}
                                 id='email' placeholder='example@gmail.com' onKeyPress={handlePressKey}
-                                className='border border-orange-500 outline-green-500 '/>
+                                className='border-2 focus:ring-2 focus:ring-green-500'/>
                             </span>
-                            <span className='flex flex-col'>
+                            <span className='flex flex-col gap-3'>
                                 <label htmlFor="otp">Verify Email</label>
                                 <input type="number" id='otp' onKeyPress={(event)=>{if(event.key==="Enter")handleVerifyOtp()}}
                                 value={otp} onChange={(e)=>setOtp(e.target.value)} 
                                 placeholder='xxxx' disabled
-                                className='border border-orange-500 outline-green-500 '/>
+                                className='border-2 focus:ring-2 focus:ring-green-500'/>
                             </span>
                             {
                                 sendCode?<span className='flex gap-5'>
@@ -115,14 +115,14 @@ const Register = () => {
                                 <input type="password" onKeyPress={((event)=>{if(event.key==="Enter") handleCreate()})} 
                                 value={password} onChange={(e)=>setPassword(e.target.value)} 
                                 id='Password' placeholder='create password...' 
-                                className='border border-orange-500 outline-green-500 '/>
+                                className='border-2 focus:ring-2 focus:ring-green-500'/>
                             </span>
                             <span className='flex flex-col'>
                                 <label htmlFor="con-pass">Confirm Password</label>
                                 <input type="password" onKeyPress={((event)=>{if(event.key==="Enter") handleCreate()})}  
                                 value={confirmation} onChange={(e)=>setConfirmation(e.target.value)} 
                                 id='con-pass' placeholder='your password password...' 
-                                className='border border-orange-500 outline-green-500 '/>
+                                className='border-2 focus:ring-2 focus:ring-green-500'/>
                             </span>
                             <span className='flex gap-5'>
                                 <button className='bg-red-600 w-full hover:bg-red-500' onClick={()=>setCreate(false)}>Back</button>

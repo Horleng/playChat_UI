@@ -37,7 +37,7 @@ const Header = () => {
       },[]);
     return (
         <>
-            <div className='flex justify-between items-center bg-gray-100  dark:bg-slate-800 py-2 px-2 md:px-5'>
+            <div className='flex justify-between items-center bg-gray-100  dark:bg-gray-800 py-2 px-2 md:px-5'>
                 <h1 className='text-2xl font-extrabold lg:flex-1 flex-[0.3] bg-gradient-to-r from-orange-500 via-red-600 to-green-500 bg-clip-text text-transparent px-5'>ChatApp</h1>
                         <ul className={'lg:gap-4 gap-2 items-center justify-center '+(nav?"sm:w-[30%] w-[50%] absolute z-50 flex-col right-0 top-[8vh] bg-gray-400 dark:bg-gray-700 py-2 rounded-lg":"hidden md:flex ")}>
                             {

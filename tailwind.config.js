@@ -22,9 +22,20 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
-    extend: {},
+    extend: {
+      keyframes:{
+        'bottom-animate':{
+          '0%':{transform:'translateY(100%)'},
+          '100%':{transform:'translateY(0)'}
+        }
+      },
+      animation:{
+        'formAnimation':'bottom-animate 0.3s ease-out forwards'
+      }
+    },
     fontFamily:{
-      'noto':['Noto Serif', 'serif']
+      'noto':['Noto Serif', 'serif'],
+      'roboto':['Roboto']
     }
   },
   plugins: [

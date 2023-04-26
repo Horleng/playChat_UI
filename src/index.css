@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Bokor&family=Chivo+Mono:ital@1&family=Koulen&family=Lato:wght@700&family=Lora:ital@1&family=Odor+Mean+Chey&family=Roboto&family=Roboto+Mono:wght@500&family=Schibsted+Grotesk&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer components{
   *{
-    @apply font-noto lg:text-base text-sm text-gray-500 dark:text-gray-400 m-0 p-0 box-border
+    @apply font-roboto text-base m-0 p-0 box-border
   }
   body{
     @apply overflow-hidden bg-gray-300 dark:bg-gray-600
   }
   button{
-    @apply py-2 px-4 rounded-lg border-none outline-none  transition-all text-white text-sm
+    @apply py-2 px-4 rounded-lg border-none outline-none  transition-all duration-200 text-white text-sm
   }
   input{
-    @apply py-2 px-5 rounded-lg bg-inherit  placeholder:text-sm
+    @apply py-2 px-5 rounded-lg bg-inherit w-full  placeholder:text-sm outline-none transition-all duration-200
   }
   ul li{
     @apply cursor-pointer font-bold

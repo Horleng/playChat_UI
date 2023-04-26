@@ -61,7 +61,7 @@ useEffect(()=>{
 useEffect(()=>{
   const getUsers = async(currentChat)=>{
     setInfoLOading(true);
-    const userId = currentChat.members.find(id=>id!==User?._id);
+    const userId = currentChat.members?.find(id=>id!==User?._id);
     await axios.get(`${url}/auth/getUserById?userId=`+userId)
     .then(res=>{
       setInfoLOading(false);

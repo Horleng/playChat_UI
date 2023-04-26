@@ -38,26 +38,27 @@ const Login = () => {
     },[showPassword]);
     return (
         <>
-            <div className='bg-gray-300 dark:bg-slate-700 h-screen md:pt-16 pt-10 container flex flex-col items-center w-full mx-auto'>
-                <h1 className='flex justify-center text-xl font-bold  bg-gradient-to-r from-[#49C5F6] to-[#FF2AEf] bg-clip-text text-transparent'>Login</h1>
-                <div className='md:mt-8 mt-5 lg:w-[50%] md:w-[70%] w-[90%]'>
-                    <div className='lg:w-[50%] md:w-[70%] w-[100%]  flex flex-col gap-5 mx-auto'>
-                        <span className='flex flex-col'>
+            <div className='animate-formAnimation bg-white dark:bg-slate-700 mt-[5vh] rounded-lg lg:w-[50%] md:w-[60%] sm:w-[80%] w-[96%] mx-auto p-10 shadow-[0px_0px_10px_rgba(0,0,0,0.2)] transition-all duration-200'>
+                <h1 className='text-[30px] font-bold flex justify-center'>
+                    Login
+                </h1>
+                <div className='mt-10 lg:w-[60%] w-[90%] mx-auto'>
+                        <div className='flex flex-col gap-2'>
                             <label htmlFor="email">Email</label>
                             <input type="email" id='email'  onKeyPress={handlePressKey}
                              value={email} onChange={(e)=>setEmail(e.target.value)}
                             placeholder='example@gmail.com' 
-                            className='border border-orange-500 outline-violet-500 '/>
-                        </span>
-                        <span className='flex flex-col'>
+                            className='border-2 focus:ring-2 focus:ring-green-400'/>
+                        </div>
+                        <div className='flex flex-col gap-2 mt-4'>
                             <label htmlFor="password">Password</label>
                             <span className='relative'>
                                 <input type="password" id='password' onKeyPress={handlePressKey}
-                                value={password} onChange={(e)=>setPassword(e.target.value)}
-                                placeholder='your password' 
-                                className='border border-orange-500 outline-violet-500 w-full'/>
+                                    value={password} onChange={(e)=>setPassword(e.target.value)}
+                                    placeholder='your password' 
+                                    className='border-2 focus:ring-2 focus:ring-green-400'/>
                                 <span onClick={()=>setShowPassword(!showPassword)} 
-                                className='absolute flex justify-center items-center right-2 top-1 w-[30px] h-[30px] hover:bg-gray-300 active:bg-gray-300 rounded-full'>
+                                className='absolute flex justify-center items-center right-2 top-[6px] cursor-pointer w-[30px] h-[30px] hover:bg-gray-300 active:bg-gray-300 rounded-full'>
                                     {
                                         showPassword?
                                         <AiFillEye fill='#425C81' size="25px"/>:
@@ -65,22 +66,25 @@ const Login = () => {
                                     }
                                 </span>
                             </span>
-                        </span>
-                        <span className='flex justify-between items-center'>
-                            <span className='flex gap-2 items-center'>
-                                <input type="checkbox" id='check' defaultChecked  onChange={(e)=>setCheckbox(e.target.checked)}/>
+                        </div>
+                        <div className='flex justify-between items-center mt-5'>
+                            <div className='flex gap-2'>
+                                <span>
+                                    <input type="checkbox" id='check' defaultChecked  onChange={(e)=>setCheckbox(e.target.checked)}/>
+                                </span>
                                 <label htmlFor="check">Remember me</label>
+                            </div>
+                            <span>
+                                <Link to="/auth/recover">
+                                    <p className='text-blue-700 underline text-base cursor-pointer'>forgot password?</p>
+                                </Link>
                             </span>
-                            <Link to="/auth/recover">
-                                <p className='text-blue-700 underline text-sm cursor-pointer'>forgot password?</p>
-                            </Link>
-                        </span>
-                        <button  className='bg-blue-700 hover:bg-blue-600' onClick={()=>User()}>{loading?<div className='loading'></div>:<span>Login</span>}</button>
-                        <span className='flex items-center gap-1 '>
+                        </div>
+                        <button  className='bg-blue-700 hover:bg-blue-600 text-gray-100 mt-10 w-[100px] py-2' onClick={()=>User()}>{loading?<div className='loading'></div>:<span>Login</span>}</button>
+                        <span className='flex items-center gap-1 mt-5'>
                             <p className='text-sm'>Not account?</p><Link to="/auth/signup" className='text-sm underline text-blue-600'>Create one</Link>
                         </span>
                     </div>
-                </div>
             </div>
         </>
     );
